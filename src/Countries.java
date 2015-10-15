@@ -21,7 +21,6 @@ public class Countries {
             String [] columns = line.split("\\|");
             String firstLetter = String.valueOf(line.charAt(0));
             ArrayList<Country> countryList = countryMap.get(firstLetter);
-            //ArrayList<String> frstLetters = countryMap.get(firstLetter);
             String abrev = columns[0];
             String name = columns[1];
             Country country = new Country(abrev, name);
@@ -30,7 +29,6 @@ public class Countries {
             //ArrayList<String> list = countryMap.get(firstLetter);
             if (countryList == null){
                 countryList = new ArrayList();
-                //country = new Country(abrev, name);
                 countryList.add(country);
                 countryMap.put(firstLetter, countryList);
             }//End of if. If list is null, Create a new list for that letter, then add name to letter, then put letter and name in groups
