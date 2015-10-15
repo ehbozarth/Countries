@@ -19,7 +19,7 @@ public class Countries {
 
         for (String line : lines){
             String [] columns = line.split("\\|");
-            String firstLetter = String.valueOf(line.charAt(0));
+            String firstLetter = String.valueOf(columns[1].charAt(0));
             ArrayList<Country> countryList = countryMap.get(firstLetter);
             String abrev = columns[0];
             String name = columns[1];
@@ -39,7 +39,7 @@ public class Countries {
         }//End of for Loop
         //System.out.println(countryMap);
         System.out.println("Please enter in a letter:");
-        String testLetter = scanner.nextLine().toUpperCase();
+        String testLetter = scanner.nextLine().toLowerCase();
         String newFileName = String.format("%s_countries.txt", testLetter);
 
         if(countryMap.containsKey(testLetter)) {
