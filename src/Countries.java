@@ -30,7 +30,7 @@ public class Countries {
             //ArrayList<String> list = countryMap.get(firstLetter);
             if (countryList == null){
                 countryList = new ArrayList();
-                country = new Country(abrev, name);
+                //country = new Country(abrev, name);
                 countryList.add(country);
                 countryMap.put(firstLetter, countryList);
             }//End of if. If list is null, Create a new list for that letter, then add name to letter, then put letter and name in groups
@@ -43,9 +43,15 @@ public class Countries {
         System.out.println("Please enter in a letter:");
         String testLetter = scanner.nextLine().toUpperCase();
         String newFileName = String.format("%s_countries.txt", testLetter);
-        //if(countryContent.startsWith(testLetter)) {
-            writeFile(newFileName, countryContent);
-        //}//End of if statement
+
+        if(countryMap.containsKey(testLetter)) {
+            String newLine = "";
+            for(Country newCountry : countryMap.get(testLetter)) {
+                newLine += String.format("%s %s\n", newCountry.abrev, newCountry.name);
+                //System.out.println(newLine);
+                writeFile(newFileName, newLine);
+            }//End of For Loop
+        }//End of if statement
 
     }//End of Main Method
 
