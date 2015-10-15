@@ -45,7 +45,7 @@ public class Countries {
         if(countryMap.containsKey(testLetter)) {
             String newLine = "";
             for(Country newCountry : countryMap.get(testLetter)) {
-                newLine += String.format("%s %s\n", newCountry.abrev, newCountry.name);
+                newLine = newLine + String.format("%s %s\n", newCountry.abrev, newCountry.name);
                 //System.out.println(newLine);
                 writeFile(newFileName, newLine);
             }//End of For Loop
