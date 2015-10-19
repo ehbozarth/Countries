@@ -19,14 +19,15 @@ public class Countries {
 
         for (String line : lines){
             String [] columns = line.split("\\|");
-            String firstLetter = String.valueOf(columns[1].charAt(0));
-            ArrayList<Country> countryList = countryMap.get(firstLetter);
             String abrev = columns[0];
             String name = columns[1];
             Country country = new Country(abrev, name);
-            countryMap.put(firstLetter, countryList);
 
-            //ArrayList<String> list = countryMap.get(firstLetter);
+            String firstLetter = String.valueOf(name.charAt(0));
+            //firstLetter = name.substring(0,1);
+            ArrayList<Country> countryList = countryMap.get(firstLetter);
+            //countryMap.put(firstLetter, countryList);
+
             if (countryList == null){
                 countryList = new ArrayList();
                 countryList.add(country);
